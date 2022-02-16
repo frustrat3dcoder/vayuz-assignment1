@@ -7,8 +7,6 @@ class ImageDisplayScreen extends StatelessWidget {
   final String? imageUrl;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Image(image: NetworkImage(imageUrl!)),
-    );
+    return Image(image: NetworkImage(imageUrl!));
   }
 }

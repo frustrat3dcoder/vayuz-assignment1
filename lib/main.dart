@@ -1,10 +1,5 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:demo_app/image_screen.dart';
-import 'package:demo_app/service/fetchData.dart';
+import 'package:demo_app/service/fetch_data.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 void main() {
   runApp(const MyApp());
@@ -41,20 +36,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        centerTitle: true,
+        backgroundColor: Colors.teal,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 _apiService.getHttp(context);
               },
-              child: Text(
-                'Fetch',
-                style: Theme.of(context).textTheme.headline4,
+              child: Container(
+                color: Colors.teal,
+                width: 200,
+                height: 50,
+                child: Center(
+                  child: Text(
+                    'Fetch',
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 24),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),
